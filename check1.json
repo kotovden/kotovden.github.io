@@ -24,6 +24,7 @@
   "paths": {
     "/wl_api/confirmation/checkavail1/": {
       "post": {
+        "consumes": ["application/x-www-form-urlencoded"],
         "description": "Запрос на создание брони выбранного перелета",
         "summary": "Запрос на создание брони выбранного перелета",
         "externalDocs": {
