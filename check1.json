@@ -78,7 +78,7 @@
         "security": [],
         "parameters": [
           {
-            "in": "body",
+            "in": "formData",
             "name": "params",
             "description": "Request Payload Body",
             "required": true,
