@@ -92,58 +92,56 @@
   },
   "definitions": {
     "Params": {
-      "params": {
-        "description": "Params object",
-        "properties": {
-          "currency": {
-            "type": "string",
-            "description": "currency"
-          },
-          "customerLanguage": {
-            "type": "string",
-            "description": "customerLanguage"
-          },
-          "email": {
-            "type": "string",
-            "description": "email"
-          },
-          "fareKey": {
-            "type": "string",
-            "description": "fareKey"
-          },
-          "gdsInfo": {
-            "type": "string",
-            "description": "gdsInfo"
-          },
-          "passengers": {
-            "type": "array",
-            "description": "passengers",
-            "items": {
-              "$ref": "#/definitions/Passenger"
-            }
-          },
-          "searchId": {
-            "type": "string",
-            "description": "searchId"
-          },
-          "source": {
-            "type": "string",
-            "description": "source"
-          },
-          "testGds": {
-            "type": "boolean",
-            "description": "testGds"
+      "description": "Params object",
+      "properties": {
+        "currency": {
+          "type": "string",
+          "description": "currency"
+        },
+        "customerLanguage": {
+          "type": "string",
+          "description": "customerLanguage"
+        },
+        "email": {
+          "type": "string",
+          "description": "email"
+        },
+        "fareKey": {
+          "type": "string",
+          "description": "fareKey"
+        },
+        "gdsInfo": {
+          "type": "string",
+          "description": "gdsInfo"
+        },
+        "passengers": {
+          "type": "array",
+          "description": "passengers",
+          "items": {
+            "$ref": "#/definitions/Passenger"
           }
         },
-        "required": [
-          "currency",
-          "customerLanguage",
-          "email",
-          "fareKey",
-          "gdsInfo",
-          "passengers"
-        ]
-      }
+        "searchId": {
+          "type": "string",
+          "description": "searchId"
+        },
+        "source": {
+          "type": "string",
+          "description": "source"
+        },
+        "testGds": {
+          "type": "boolean",
+          "description": "testGds"
+        }
+      },
+      "required": [
+        "currency",
+        "customerLanguage",
+        "email",
+        "fareKey",
+        "gdsInfo",
+        "passengers"
+      ]
     },
     "Passenger": {
       "description": "passenger item",
