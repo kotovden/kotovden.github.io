@@ -80,8 +80,10 @@
           {
             "in": "formData",
             "name": "params",
+            "type": "application/x-www-form-urlencoded",
             "description": "Request Payload Body",
             "required": true,
+            "collectionFormat": "multi",
             "schema": {
               "$ref": "#/definitions/Params"
             }
