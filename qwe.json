@@ -167,16 +167,6 @@
             ]
           },
           {
-            "in": "header",
-            "name": "Accept",
-            "description": "Header Param Description",
-            "required": true,
-            "type": "string",
-            "enum": [
-              " application/json"
-            ]
-          },
-          {
             "in": "formData",
             "name": "params",
             "description": "Query Param description goes here..",
