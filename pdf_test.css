@@ -90,7 +90,6 @@ html, body {
 }
 .image-block div{
   margin: 0 10px 10px 0;
-  border: 3px solid red;
   display: block;
   float: left;
 }
