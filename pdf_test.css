@@ -54,3 +54,11 @@ html, body {
 .bolder {
   font-weight: bolder;
 }
+
+.header2 {
+  font-family: 'Calibri', Tahoma, sans-serif;
+  padding: 0 30px; 
+  text-align: center;
+  font-size: 50px;
+  font-weight: bolder;
+}
