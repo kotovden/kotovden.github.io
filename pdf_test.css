@@ -70,7 +70,10 @@ html, body {
 .colored tr:nth-child(2n+1) {
   background:#FCE9D9; /* Цвет фона */
 } 
-
+.text-colored {
+  font-family: 'Calibri', Tahoma, sans-serif;
+  font-size: 140;
+}
 .header3 {
   color: #F79546;
   font-family: 'Calibri', Tahoma, sans-serif;
