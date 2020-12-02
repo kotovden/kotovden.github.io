@@ -16,10 +16,12 @@ html, body {
 .logo-text {
   font-size: 28px;
   font-family: 'Calibri', Tahoma, sans-serif;
+  font-weight: 400;
   padding: 3px 0;
 }
 .paragraph-text {
   font-size: 28px;
+  font-weight: 300;
   font-family: 'Calibri', Tahoma, sans-serif;
 }
 .logo-wrp {
@@ -27,10 +29,11 @@ html, body {
 }
 .text-wrp {
   padding: 0 86px;
-  font-weight: 300;
   text-align: center;
 }
 .header-text {
   color: #ef6225;
+  font-size: 28px;
   padding: 0 0 50px 0;
+  margin: 0 0 50px 0;
 }
