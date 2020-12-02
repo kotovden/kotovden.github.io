@@ -110,3 +110,11 @@ html, body {
   text-align: center;
   vertical-align: middle;
 }
+.blue-table tr td.whitespace {
+  text-align: center;
+  vertical-align: middle;
+  background: #DCE6F0;
+  border: 15px solid #fff;
+  padding: 20px 5px;
+  background: #ccc;
+}
