@@ -3,17 +3,17 @@
   color:red;
 }
 .header {
-  height: 300px;
+  height: 600px;
 }
 .header-wrp {
   float: left;
-  height: 300px;
+  height: 600px;
 }
 .logo-text {
-  font-size: 10px;
+  font-size: 32px;
 }
 .paragraph-text {
-  font-size: 10px;
+  font-size: 32px;
 }
 .logo-wrp {
   text-align: center;
