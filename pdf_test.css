@@ -22,8 +22,9 @@
 }
 .text-wrp {
   padding: 0 86px;
+  font-weight: 300;
   text-align: center;
 }
 .header-text {
-  color: '#ef6225';
+  color: #ef6225;
 }
