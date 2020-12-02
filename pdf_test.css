@@ -96,6 +96,7 @@ html, body {
 }
 .blue-table {
   border-color: #1F487C;
+  border: none;
   color: #1F487C;
   font-family: 'Calibri', Tahoma, sans-serif;
   font-size: 40px;
