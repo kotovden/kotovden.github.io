@@ -61,6 +61,19 @@ html, body {
   font-size: 50px;
   font-weight: bolder;
 }
+
+.colored {
+  border-top: 3px double black;
+}
 .colored tr:nth-child(2n+1) {
   background:#FCE9D9; /* Цвет фона */
 } 
+
+.header3 {
+  color: #F79546;
+  font-family: 'Calibri', Tahoma, sans-serif;
+  padding: 0 30px; 
+  text-align: center;
+  font-size: 65px;
+  font-weight: bolder;
+}
