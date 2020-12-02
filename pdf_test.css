@@ -110,7 +110,9 @@ html, body {
   vertical-align: middle;
 }
 .blue-table tr td.whitespace {
-  text-align: center;
+  text-align: left;
+  font-size: 75px;
+  font-weight: bold;
   vertical-align: middle;
   background: #DCE6F0;
   border-top: 15px solid #fff;
