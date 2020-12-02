@@ -80,3 +80,9 @@ html, body {
   font-size: 65px;
   font-weight: bolder;
 }
+.anchor {
+  color: #C0504D;
+  font-family: 'Calibri', Tahoma, sans-serif;
+  text-align: right;
+  font-size: 30px;
+}
