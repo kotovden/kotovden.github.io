@@ -45,7 +45,7 @@ html, body {
   font-weight: bolder;
 }
 .text-1 {
-  font-family: 'Arial', Tahoma, sans-serif;
+  font-family: 'Calibri', Tahoma, sans-serif;
   font-size: 40;
 }
 .bold {
@@ -67,6 +67,7 @@ html, body {
   border-spacing: 0px;
   border-collapse: collapse;
   width: 100%;
+  font-size: 40;
 }
 .colored tr:nth-child(2n+1) {
   background:#FCE9D9; /* Цвет фона */
