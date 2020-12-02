@@ -93,6 +93,7 @@ html, body {
 .blue-table {
   border-color: #1F487C;
   border: none;
+  border-collapse: collapse;
   color: #1F487C;
   font-family: 'Calibri', Tahoma, sans-serif;
   font-size: 40px;
