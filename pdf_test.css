@@ -1,5 +1,6 @@
 html, body {
   font-family: 'Calibri', Tahoma, sans-serif;
+  font-weight: normal;
 }
 .red
 {
@@ -14,12 +15,12 @@ html, body {
 }
 .logo-text {
   font-size: 28px;
-  font-family: Tahoma,sans-serif;
+  font-family: 'Calibri', Tahoma, sans-serif;
   padding: 3px 0;
 }
 .paragraph-text {
   font-size: 28px;
-  font-family: Tahoma,sans-serif;
+  font-family: 'Calibri', Tahoma, sans-serif;
 }
 .logo-wrp {
   text-align: center;
