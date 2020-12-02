@@ -58,7 +58,9 @@ html, body {
 .header2 {
   font-family: 'Calibri', Tahoma, sans-serif;
   padding: 0 30px; 
-  text-align: center;
   font-size: 50px;
   font-weight: bolder;
 }
+.colored tr:nth-child(2n+1) {
+  background:#FCE9D9; /* Цвет фона */
+} 
