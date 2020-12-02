@@ -48,6 +48,9 @@ html, body {
   font-family: 'Calibri', Tahoma, sans-serif;
   font-size: 40;
 }
+.bold {
+  font-weight: bold;
+}
 .bolder {
   font-weight: bolder;
 }
