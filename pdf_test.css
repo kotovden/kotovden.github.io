@@ -46,7 +46,7 @@ html, body {
 }
 .text-1 {
   font-family: 'Calibri', Tahoma, sans-serif;
-  font-size: 40;
+  font-size: 40px;
 }
 .bold {
   font-weight: bold;
@@ -72,7 +72,7 @@ html, body {
 } 
 .text-colored {
   font-family: 'Calibri', Tahoma, sans-serif;
-  font-size: 140;
+  font-size: 90px;
 }
 .header3 {
   color: #F79546;
