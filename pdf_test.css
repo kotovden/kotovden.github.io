@@ -3,7 +3,6 @@
   color:red;
 }
 .header {
-  padding: 0 12%;
   height: 300px;
 }
 .header-wrp {
@@ -15,4 +14,7 @@
 }
 .text-wrp {
   margin-left: 86px;
+}
+.text-wrp h1{
+  color: '#ef6225'
 }
