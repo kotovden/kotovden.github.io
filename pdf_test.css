@@ -88,3 +88,6 @@ html, body {
   text-align: right;
   font-size: 30px;
 }
+.image-block img{
+  padding: 10px;
+}
