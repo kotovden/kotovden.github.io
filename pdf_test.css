@@ -66,6 +66,7 @@ html, body {
   border-top: 3px double black;
   border-spacing: 0px;
   border-collapse: collapse;
+  width: 100%;
 }
 .colored tr:nth-child(2n+1) {
   background:#FCE9D9; /* Цвет фона */
