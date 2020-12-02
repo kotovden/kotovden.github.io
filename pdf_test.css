@@ -3,6 +3,16 @@
   color:red;
 }
 .header {
-  display: flex;
   padding: 0 12%;
+  height: 300px;
+}
+.header-wrp {
+  float: left;
+  height: 300px;
+}
+.logo-wrp {
+  padding: 0 86px;
+}
+.text-wrp {
+  margin-left: 86px;
 }
