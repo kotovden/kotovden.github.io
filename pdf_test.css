@@ -121,3 +121,16 @@ html, body {
   border-right: none;
   padding: 3px;
 }
+.blue-table .orange {
+  background: rgb(249, 190, 143);
+}
+.blue-table .gray {
+  background: rgb(217, 217, 217);
+}
+
+.blue-table .and {
+  border-top: 15px solid #fff;
+  border-bottom: 15px solid #fff;
+  border-left: none;
+  border-right: none;
+}
