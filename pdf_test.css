@@ -17,7 +17,6 @@
 .paragraph-text {
   font-size: 28px;
   font-family: Tahoma,sans-serif;
-  padding: 30px 0 0 0;
 }
 .logo-wrp {
   text-align: center;
@@ -29,4 +28,5 @@
 }
 .header-text {
   color: #ef6225;
+  padding: 0 0 50px 0;
 }
