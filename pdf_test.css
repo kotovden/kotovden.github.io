@@ -47,11 +47,9 @@ html, body, .table-head td, .text-2 {
   border-collapse: collapse ;
 }
 .double-line {
-  width:60%;
   height: 9px;
   border-top: 3px solid black;
   border-bottom: 3px solid black;
-  margin:  0 3px -6px 3px;
 }
 .table-head tr {
   border-color: green ;
