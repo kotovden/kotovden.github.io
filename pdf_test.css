@@ -59,6 +59,7 @@ html, body, .table-head td, .text-2 {
   border-right: none;
   padding-top: 15px;
   padding-bottom: 15px;
+  border-color: red ;
 }
 
 .bg-rose
