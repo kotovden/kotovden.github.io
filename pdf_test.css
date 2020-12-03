@@ -50,6 +50,7 @@ html, body, .table-head td, .text-2 {
   background-image: url(https://kotovden.github.io/images/double3.png);
   background-repeat: repeat-x;
   background-position: bottom;
+  background-color: #FCE9D9;
 }
 .table-head tr {
   border-color: green ;
