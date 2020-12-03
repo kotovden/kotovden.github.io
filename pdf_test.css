@@ -50,6 +50,8 @@ html, body, .table-head td, .text-2 {
   height: 12px;
   border-top: 3px solid black;
   border-bottom: 3px solid black;
+  width: 100%;
+  margin: 10px;
 }
 .table-head tr {
   border-color: green ;
