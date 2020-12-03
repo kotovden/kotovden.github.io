@@ -2,135 +2,89 @@ html, body {
   font-family: 'Calibri', Tahoma, sans-serif;
   font-weight: normal;
 }
-.header {
-  height: 600px;
+
+.orange
+{
+   color: #F79546;
 }
-.header-wrp {
-  float: left;
-  height: 600px;
+
+.text-0 {
+  font-size: 32px;
 }
-.logo-text {
-  font-size: 40px;
-  font-family: 'Calibri', Tahoma, sans-serif;
-  font-weight: bolder;
-}
-.paragraph-text {
-  font-size: 35px;
-  font-weight: 300;
-  font-family: 'Calibri', Tahoma, sans-serif;
-}
-.logo-wrp {
-  text-align: center;
-}
-.text-wrp {
-  padding: 0 86px;
-  text-align: center;
-}
-.header-text {
-  color: #F79546;
-  font-size: 140px;
-  font-weight: 300;
-  padding: 0 0 50px 0;
-  margin: 0 0 50px 0;
-}
-.header1 {
-  font-family: 'Calibri', Tahoma, sans-serif;
-  padding: 0 30px; 
-  text-align: center;
-  font-size: 75px;
-  font-weight: bolder;
-}
+
 .text-1 {
-  font-family: 'Calibri', Tahoma, sans-serif;
   font-size: 40px;
 }
-.bold {
-  font-weight: bold;
-}
-.bolder {
-  font-weight: bolder;
+
+html, body, .table-head td, .text-2 {
+  font-size: 46px;
 }
 
-.header2 {
-  font-family: 'Calibri', Tahoma, sans-serif;
-  padding: 0 30px; 
-  font-size: 50px;
-  font-weight: bolder;
+.text-3 {
+  font-size: 55px;
 }
 
-.colored {
-  border-top: 6px double black;
-  border-spacing: 0px;
-  width: 100%;
+.text-4 {
+  font-size: 75px;
 }
-.colored tr:nth-child(2n+1) {
-  background:#FCE9D9; /* Цвет фона */
-} 
-.text-colored {
-  font-family: 'Calibri', Tahoma, sans-serif;
+
+.text-5 {
   font-size: 100px;
 }
-.header3 {
-  color: #F79546;
-  font-family: 'Calibri', Tahoma, sans-serif;
-  padding: 0 30px; 
-  text-align: center;
-  font-size: 65px;
-  font-weight: bolder;
-}
-.anchor {
-  color: #C0504D;
-  font-family: 'Calibri', Tahoma, sans-serif;
-  text-align: right;
-  font-size: 30px;
-}
-.image-block div{
-  margin: 0 10px 10px 0;
-  padding: 0 10px 10px 0;
-  display: block;
-  float: left;
-}
-.blue-table {
-  border-color: #1F487C;
-  border: none;
-  border-collapse: collapse;
-  color: #1F487C;
-  font-family: 'Calibri', Tahoma, sans-serif;
-  font-size: 40px;
-  text-align: center;
-}
-.blue-table tr {
-  text-align: center;
-  border: 1px solid #1F487C;
+
+.text-6 {
+  font-size: 140px;
 }
 
-.blue-table tr td {
-  text-align: center;
-  vertical-align: middle;
-  border: 1px solid #1F487C;
+.line
+{
+  height: 6px;
+  width:100%;
+  background: #000000;
 }
-.blue-table tr td.whitespace {
+
+.table-head td {
   text-align: left;
-  font-size: 75px;
-  font-weight: bold;
   vertical-align: middle;
-  background: #DCE6F0;
-  border-top: 15px solid #fff;
-  border-bottom: 15px solid #fff;
   border-left: none;
   border-right: none;
-  padding: 3px;
-}
-.blue-table .orange {
-  background: rgb(249, 190, 143);
-}
-.blue-table .gray {
-  background: rgb(217, 217, 217);
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
-.blue-table .and {
-  border-top: 15px solid #fff;
-  border-bottom: 15px solid #fff;
-  border-left: none;
-  border-right: none;
+.bg-rose
+{
+	background:#FCE9D9;
+}
+
+.table-blue
+{
+  color: #1F487C;
+  border:0;
+  border-spacing:0;
+}
+
+.table-blue td
+{
+  border: 1px solid #1F487C;
+}
+
+.bg-blue
+{
+	background: #DCE6F0;
+}
+
+.bg-orange
+{
+	background: rgb(249, 190, 143);
+}
+
+.bg-gray
+{
+	background: rgb(217, 217, 217);
+}
+
+.text-bottom {
+  color: #C0504D;
+  text-align: right;
 }
