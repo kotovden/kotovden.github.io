@@ -52,8 +52,8 @@ html, body, .table-head td, .text-2 {
   border-top: 3px solid black;
   border-bottom: 3px solid black;
   margin-bottom: -9px;
-  border-left: 9px solid white;
-  border-right: 9px solid white;
+  margin-left: 9px;
+  margin-right: 9px;
 }
 .table-head tr {
   border-color: green ;
