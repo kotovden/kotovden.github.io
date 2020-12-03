@@ -47,7 +47,7 @@ html, body, .table-head td, .text-2 {
   border-collapse: collapse ;
 }
 .double-line {
-  height: 12px;
+  height: 9px;
   background-image: url(https://kotovden.github.io/images/double2.png);
   background-repeat: repeat-x;
   background-size: 20px;
