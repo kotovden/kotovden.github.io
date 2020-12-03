@@ -54,6 +54,7 @@ html, body, .table-head td, .text-2 {
 }
 .table-head tr {
   border-color: green ;
+  border: none;
 }
 .table-head td {
   text-align: left;
@@ -62,7 +63,8 @@ html, body, .table-head td, .text-2 {
   border-right: none;
   padding-top: 15px;
   padding-bottom: 15px;
-  border-color: red ;
+  border-color: red;
+  border: none;
 }
 
 .bg-rose
