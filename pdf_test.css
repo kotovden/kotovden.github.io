@@ -46,8 +46,10 @@ html, body, .table-head td, .text-2 {
 .table-head {
   border-collapse: collapse ;
 }
-.table-head td.double {
-  padding: 0;
+.double-line {
+  height: 6px;
+  border-top: 6px solid black;
+  border-bottom: 6px solid black;
 }
 .table-head td {
   text-align: left;
