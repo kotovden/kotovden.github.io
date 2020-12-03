@@ -43,6 +43,9 @@ html, body, .table-head td, .text-2 {
   background: #000000;
 }
 
+.table-head {
+  border-collapse: collapse ;
+}
 .table-head td {
   text-align: left;
   vertical-align: middle;
@@ -62,6 +65,7 @@ html, body, .table-head td, .text-2 {
   color: #1F487C;
   border:0;
   border-spacing:0;
+  border-collapse: collapse ;
 }
 
 .table-blue td
