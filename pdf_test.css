@@ -46,6 +46,9 @@ html, body, .table-head td, .text-2 {
 .table-head {
   border-collapse: collapse ;
 }
+.table-head td.double {
+  padding: 0;
+}
 .table-head td {
   text-align: left;
   vertical-align: middle;
