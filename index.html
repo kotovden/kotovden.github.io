@@ -1,614 +1,1275 @@
 <!doctype html>
 <html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Объясни мне</title>
+    <style>
+      :root {
+        --bg: #070c14;
+        --ink: #f7f8fb;
+        --muted: #9ca6b8;
+        --pink: #ef45ab;
+        --green: #24dda1;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        background: radial-gradient(circle at 70% 0, #121a29, #070c14 38%);
+        color: var(--ink);
+        font-family: Arial, sans-serif;
+      }
+      .wrap {
+        max-width: 1080px;
+        margin: auto;
+        padding: 0 52px;
+      }
+      .nav {
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #17202c;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        color: #ef62ba;
+        font-weight: 800;
+      }
+      .logo {
+        display: grid;
+        place-items: center;
+        width: 24px;
+        height: 24px;
+        border-radius: 7px;
+        background: linear-gradient(135deg, #ef41ad, #537cff);
+        color: white;
+      }
+      .nav a {
+        border: 1px solid #2a3443;
+        border-radius: 8px;
+        padding: 9px 15px;
+        color: white;
+        text-decoration: none;
+        font-size: 12px;
+      }
+      .hero {
+        height: 510px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-photo {
+        position: absolute;
+        right: 0;
+        width: 55%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .hero:after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+          linear-gradient(90deg, #070c14 5%, #070c14 43%, transparent 77%),
+          linear-gradient(0deg, #070c14, transparent 35%);
+      }
+      .hero-copy {
+        position: relative;
+        z-index: 2;
+        width: 57%;
+        padding-top: 66px;
+      }
+      .eyebrow {
+        font-size: 9px;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        color: #ef64ba;
+        font-weight: bold;
+        margin-bottom: 17px;
+      }
+      .eyebrow:before {
+        content: "";
+        display: inline-block;
+        width: 18px;
+        height: 1px;
+        background: #26d8b6;
+        vertical-align: middle;
+        margin-right: 7px;
+      }
+      h1 {
+        font-size: 43px;
+        line-height: 0.98;
+        letter-spacing: -0.04em;
+        margin: 0 0 22px;
+      }
+      h1 span {
+        background: linear-gradient(90deg, #f045ad, #5478ff);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+      .lead {
+        font-size: 14px;
+        line-height: 1.6;
+        font-weight: bold;
+        max-width: 425px;
+      }
+      .desc {
+        font-size: 12px;
+        line-height: 1.6;
+        color: var(--muted);
+        max-width: 430px;
+      }
+      .btn {
+        border: 0;
+        border-radius: 8px;
+        padding: 14px 27px;
+        color: white;
+        font-weight: bold;
+        background: linear-gradient(90deg, #e83eac, #537df7, #20dfa6);
+        cursor: pointer;
+      }
+      .micro {
+        font-size: 10px;
+        color: #8590a4;
+        margin-top: 12px;
+      }
+      .appointment {
+        position: absolute;
+        z-index: 3;
+        right: 52px;
+        bottom: 22px;
+        width: 350px;
+        padding: 15px;
+        background: #0f1725ed;
+        border: 1px solid #273244;
+        border-radius: 15px;
+        box-shadow: 0 18px 50px #0009;
+        font-size: 10px;
+      }
+      .appt {
+        margin: 10px 0;
+        padding: 13px;
+        border-radius: 8px;
+        background: linear-gradient(100deg, #252047, #2c263b);
+      }
+      .paid {
+        float: right;
+        color: #2de0a6;
+      }
+      .actions {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 7px;
+      }
+      .actions button {
+        height: 32px;
+        border: 1px solid #273348;
+        border-radius: 7px;
+        background: #0b111c;
+        color: white;
+      }
+      .actions .join {
+        background: linear-gradient(90deg, #23c8e4, #21df90);
+        color: #04202a;
+      }
+      .features {
+        padding: 42px 0 50px;
+      }
+      .title {
+        font-size: 24px;
+        line-height: 1.08;
+        margin: 0 0 32px;
+      }
 
-<head>  
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description"
-        content="Готовая витрина с вашим брендом, прием платежей 24/7, умная система доставки и программа лояльности">
-    <meta name="keywords" content="программа, сервис, онлайн, цветов, приложение, ios, android, адаптивное">
+      .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 30px;
+      }
+      .featutres-svg {
+        width: 50px;
+        height: 50px;
+      }
+      .featutres-svg svg {
+        width: 50px;
+        height: 50px;
+        display: block;
+      }
+      .ico {
+        width: 34px;
+        height: 39px;
+        display: inline-block;
+      }
+      .feature b {
+        font-size: 12px;
+      }
+      .feature p,
+      .step p {
+        font-size: 10px;
+        line-height: 1.5;
+        color: var(--muted);
+      }
+      .light {
+        max-width: 1080px;
+        margin: auto;
+        background: #fbfbfc;
+        color: #111927;
+        border-radius: 30px;
+        padding: 48px 52px;
+      }
+      .support {
+        display: grid;
+        grid-template-columns: 38% 62%;
+        min-height: 385px;
+      }
+      .support p {
+        font-size: 12px;
+        line-height: 1.65;
+        color: #48505e;
+      }
+      .photos {
+        position: relative;
+        height: 320px;
+      }
+      .photos img {
+        position: absolute;
+        object-fit: cover;
+        border-radius: 9px;
+        box-shadow: 0 8px 24px #1223;
+      }
+      .coach {
+        width: 52%;
+        height: 270px;
+        left: 10%;
+      }
+      .woman {
+        width: 38%;
+        height: 145px;
+        right: 0;
+        top: -18px;
+      }
+      .man {
+        width: 27%;
+        height: 112px;
+        right: 12%;
+        bottom: 0;
+      }
+      .quote {
+        position: absolute;
+        left: -48%;
+        bottom: -14px;
+        width: 72%;
+        background: white;
+        border-radius: 12px;
+        padding: 22px;
+        box-shadow: 0 7px 28px #1112;
+        font-size: 10px;
+        line-height: 1.5;
+      }
+      .quote:before {
+        content: "“";
+        display: block;
+        color: #7194ff;
+        font-size: 36px;
+        font-weight: bold;
+      }
+      .process {
+        padding: 52px 0;
+      }
+      .process-flex {
+        display: flex;
+        gap: 55px;
+      }
+      .steps {
+        flex: 1;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        position: relative;
+      }
+      .steps:before {
+        content: "";
+        position: absolute;
+        left: 7%;
+        right: 7%;
+        top: 42px;
+        height: 4px;
+        border-radius: 4px;
+        background: linear-gradient(90deg, #22de93, #39c3e0, #a756ee);
+      }
+      .step {
+        text-align: center;
+        position: relative;
+      }
+      .dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin: auto;
+        background: #23dba0;
+        position: relative;
+        z-index: 1;
+      }
+      .step strong {
+        display: block;
+        color: #22dca0;
+        font-size: 11px;
+        margin: 9px;
+      }
+      .platform {
+        display: grid;
+        grid-template-columns: 36% 64%;
+        align-items: center;
+        min-height: 330px;
+      }
+      .checks {
+        list-style: none;
+        padding: 0;
+        font-size: 11px;
+        line-height: 2;
+      }
+      .checks li:before {
+        content: "✓";
+        color: #20c88f;
+        border: 1px solid #20c88f;
+        border-radius: 50%;
+        padding: 0 2px;
+        margin-right: 7px;
+      }
+      .devices {
+        width: 100%;
+        height: 330px;
+        object-fit: cover;
+        border-radius: 12px;
+      }
+      .pricing {
+        padding: 55px 52px 42px;
+        display: grid;
+        grid-template-columns: 38% 29% 33%;
+        align-items: center;
+      }
+      .pricing h2 {
+        font-size: 24px;
+      }
+      .percent {
+        font-size: 150px;
+        font-weight: bold;
+        text-align: center;
+        line-height: 0.8;
+        background: linear-gradient(#22d6a1, #27bdf0, #e343ae);
+        -webkit-background-clip: text;
+        color: transparent;
+      }
+      .invoice {
+        background: #111b2b;
+        border: 1px solid #233044;
+        border-radius: 16px;
+        padding: 22px;
+      }
+      .row {
+        display: flex;
+        justify-content: space-between;
+        padding: 17px 0;
+        border-bottom: 1px solid #354156;
+        font-size: 12px;
+      }
+      .row:last-child {
+        border: 0;
+      }
+      .net {
+        font-size: 23px;
+        color: #2bdd9f;
+      }
+      .cta {
+        background: linear-gradient(90deg, #e43cae, #6678f4, #22c1e8, #29de83);
+        border-radius: 14px;
+        padding: 27px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .cta h2 {
+        font-size: 25px;
+        margin: 0 0 8px;
+      }
+      .cta p {
+        font-size: 11px;
+        margin: 0;
+      }
+      .cta .btn {
+        background: #111927;
+      }
+      .footer {
+        padding-top: 34px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1.4fr;
+        gap: 30px;
+        font-size: 10px;
+        color: #909aac;
+      }
+      .footer b {
+        color: white;
+      }
+      .footer a {
+        display: block;
+        color: #909aac;
+        text-decoration: none;
+        margin-top: 9px;
+      }
+      .legal {
+        border-top: 1px solid #172130;
+        margin-top: 24px;
+        padding: 15px 0;
+        display: flex;
+        justify-content: space-between;
+        color: #606c7e;
+        font-size: 9px;
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 9;
+        background: #02050bdd;
+        place-items: center;
+      }
+      .modal.open {
+        display: grid;
+      }
+      .modal-card {
+        width: min(90%, 420px);
+        background: #111a2a;
+        border: 1px solid #2b3850;
+        border-radius: 17px;
+        padding: 28px;
+      }
+      .modal input {
+        width: 100%;
+        margin: 10px 0;
+        padding: 13px;
+        background: #09111d;
+        border: 1px solid #2b3850;
+        border-radius: 8px;
+        color: white;
+      }
+      @media (max-width: 960px) {
+        .wrap {
+          padding-left: 22px;
+          padding-right: 22px;
+        }
+        .hero {
+          height: 720px;
+        }
+        .hero-photo {
+          width: 100%;
+          height: 350px;
+        }
+        .hero:after {
+          background: linear-gradient(0deg, #070c14 48%, transparent 85%);
+        }
+        .hero-copy {
+          width: 100%;
+          padding-top: 320px;
+        }
+        h1 {
+          font-size: 38px;
+        }
+        .appointment {
+          display: none;
+        }
+        .feature-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .light {
+          border-radius: 20px;
+          padding: 35px 24px;
+        }
+        .support {
+          grid-template-columns: 1fr;
+        }
+        .photos {
+          margin-top: 30px;
+        }
+        .quote {
+          left: 0;
+          width: 80%;
+        }
 
-    <!-- Yandex.Metrika counter -->
-    <script type="text/javascript">
-        (function(m,e,t,r,i,k,a){
-            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();
-            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
-            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
-        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108454262', 'ym');
+        .step strong {
+          margin: 9px 0;
+        }
+        .platform,
+        .pricing {
+          grid-template-columns: 1fr;
+        }
+        .percent {
+          font-size: 105px;
+          margin: 35px;
+        }
+        .cta {
+          display: block;
+        }
+        .cta .btn {
+          margin-top: 18px;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
 
-        ym(108454262, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/108454262" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
-
-    <title>Программа для цветочного бизнеса - FlowerApp: витрина, доставка, оплата</title>
-    <!-- Required meta tags -->
-    <!-- Font -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- Themify Icons -->
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <!-- Owl carousel -->
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <!-- Main css -->
-    <link href="css/style.css" rel="stylesheet">
-</head>
-
-<body data-spy="scroll" data-target="#navbar" data-offset="30">
-
-    <!-- Nav Menu -->
-
-    <div class="nav-menu fixed-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <nav class="navbar navbar-dark navbar-expand-lg">
-                        <a class="navbar-brand" href="index.html" style="
-    font-size: 30px;
-">FLOWER<span style="font-weight: 900;">APP</span></a> <button class="navbar-toggler" type="button" data-toggle="collapse"
-                            data-target="#navbar" aria-controls="navbar" aria-expanded="false"
-                            aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
-                        <div class="collapse navbar-collapse" id="navbar">
-                            <ul class="navbar-nav ml-auto">
-                                <li class="nav-item"> <a class="nav-link active" href="#home">ГЛАВНАЯ <span
-                                            class="sr-only">(current)</span></a> </li>
-                                <li class="nav-item"> <a class="nav-link" href="#features">ВОЗМОЖНОСТИ</a> </li>
-                                <li class="nav-item"> <a style="white-space: nowrap;" class="nav-link" href="#gallery">КАК ВЫГЛЯДИТ</a> </li>
-                                <li class="nav-item"> <a class="nav-link" href="#pricing">СТОИМОСТЬ</a> </li>
-                                <li class="nav-item"> <a class="nav-link" href="#contact">КОНТАКТЫ</a> </li>
-                                <li class="nav-item"><a target="_blank" href="https://max.ru/u/f9LHodD0cOJQCqfwdqEIaOL20g2dbIu9WPfF6nxvtehX0ATItFQAwblGel0"
-                                        class="btn btn-outline-light my-3 my-sm-0 ml-lg-3">ЗАПИСАТЬСЯ НА ДЕМО</a></li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
+      @media (max-width: 760px) {
+        .wrap {
+          padding-left: 22px;
+          padding-right: 22px;
+        }
+        .hero {
+          height: 720px;
+        }
+        .hero-photo {
+          width: 100%;
+          height: 350px;
+        }
+        .hero:after {
+          background: linear-gradient(0deg, #070c14 48%, transparent 85%);
+        }
+        .hero-copy {
+          width: 100%;
+          padding-top: 320px;
+        }
+        h1 {
+          font-size: 38px;
+        }
+        .appointment {
+          display: none;
+        }
+        .feature-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .light {
+          border-radius: 20px;
+          padding: 35px 24px;
+        }
+        .support {
+          grid-template-columns: 1fr;
+        }
+        .photos {
+          margin-top: 30px;
+        }
+        .quote {
+          left: 0;
+          width: 80%;
+        }
+        .process-flex {
+          display: block;
+        }
+        .steps {
+          grid-template-columns: 1fr;
+        }
+        .steps:before {
+          display: none;
+        }
+        .step {
+          display: grid;
+          grid-template-columns: 44px 25px 1fr;
+          text-align: left;
+          align-items: center;
+        }
+        .platform,
+        .pricing {
+          grid-template-columns: 1fr;
+        }
+        .percent {
+          font-size: 105px;
+          margin: 35px;
+        }
+        .cta {
+          display: block;
+        }
+        .cta .btn {
+          margin-top: 18px;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="wrap nav">
+      <div class="brand"><span class="logo">✦</span>Объясни мне</div>
+      <a href="#price">Для экспертов</a>
+    </nav>
+    <header class="hero">
+      <img class="hero-photo" src="./img/01.png" alt="Эксперт за ноутбуком" />
+      <div class="wrap hero-copy">
+        <div class="eyebrow">Рабочее пространство эксперта</div>
+        <h1>
+          Практика выросла.<br />Пора перестать<br />вести её
+          <span>вручную.</span>
+        </h1>
+        <p class="lead">
+          Чаты, календарь, оплаты и видеозвонки по отдельности работают отлично.
+          Но соединять их между собой больше не обязательно вам.
+        </p>
+        <p class="desc">
+          «Объясни мне» собирает весь процесс работы с клиентом — от записи и
+          оплаты до консультации и следующей встречи.
+        </p>
+        <button class="btn open">Провести следующую консультацию</button>
+        <div class="micro">
+          Начните с одного клиента · Без подписки · Комиссия 1%
         </div>
-    </div>
-
-
-    <header class="bg-gradient" id="home">
-        <div class="container mt-5">
-            <h1><span style="font-weight: 900;">Ваш</span> онлайн-магазин с бонусами для роста повторных заказов</h1>
-            <p class="tagline">Витрина с <span style="font-weight: 900;">вашим брендом</span>, приём заказов и оплата 24/7, доставка и бонусы для возврата клиентов </p>
+      </div>
+      <div class="appointment">
+        <b>Следующая консультация</b
+        ><span style="float: right; color: #8490a4">сегодня</span>
+        <div class="appt">
+          <b>Анна · 15:00</b><span class="paid">оплачено</span>
+          <div style="color: #9ba5b5; margin-top: 6px">
+            ◉ фитнес · Видео · 3 000 ₽
+          </div>
         </div>
-        <div class="img-holder mt-3"><img src="images/iphonex.png" alt="phone" class="img-fluid"></div>
+        <div class="actions">
+          <button>Чат</button><button class="join">Подключиться</button>
+        </div>
+      </div>
     </header>
-
-    <div class="client-logos my-5">
-        <div class="container text-center">
-            <img src="images/client-logos.png" alt="client logos" class="img-fluid">
+    <section class="wrap features">
+      <div class="eyebrow">Всё в одном пространстве</div>
+      <h2 class="title">Чтобы вы занимались<br />главным — людьми</h2>
+      <div class="feature-grid">
+        <div class="feature">
+          <div class="featutres-svg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="32 56 192 169"
+              preserveAspectRatio="none"
+              fill="none"
+            >
+              <defs>
+                <linearGradient
+                  id="outline"
+                  x1="44"
+                  y1="58"
+                  x2="214"
+                  y2="190"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0" stop-color="#F33BAE" />
+                  <stop offset="0.46" stop-color="#B64FDE" />
+                  <stop offset="0.72" stop-color="#6279F2" />
+                  <stop offset="1" stop-color="#22C9ED" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M70 60H186C204.778 60 220 75.2223 220 94V144C220 162.778 204.778 178 186 178H119L78 196L86 178H70C51.2223 178 36 162.778 36 144V94C36 75.2223 51.2223 60 70 60Z"
+                stroke="url(#outline)"
+                stroke-width="8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <b>Переписка</b>
+          <p>Все диалоги с клиентами в одном месте.</p>
         </div>
-    </div>
-
-    <div class="section light-bg" id="features">
-
-
-        <div class="container">
-
-            <div class="section-title">
-                <small>КОРОТКО</small>
-                <h3>То что вам понравится</h3>
-            </div>
-
-
-            <div class="row">
-                <div class="col-12 col-lg-4">
-                    <div class="card features">
-                        <div class="card-body">
-                            <div class="media">
-                                <span class="ti-face-smile gradient-fill ti-3x mr-3"></span>
-                                <div class="media-body">
-                                    <h4 class="card-title">Просто и быстро</h4>
-                                    <p class="card-text">Удобный интерфейс — клиенты легко оформляют заказ с телефона в любое время</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-4">
-                    <div class="card features">
-                        <div class="card-body">
-                            <div class="media">
-                                <span class="ti-settings gradient-fill ti-3x mr-3"></span>
-                                <div class="media-body">
-                                    <h4 class="card-title">Простая настройка</h4>
-                                    <p class="card-text">Настроим витрину и бонусы — чтобы клиенты возвращались и заказывали снова</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-lg-4">
-                    <div class="card features">
-                        <div class="card-body">
-                            <div class="media">
-                                <span class="ti-lock gradient-fill ti-3x mr-3"></span>
-                                <div class="media-body">
-                                    <h4 class="card-title">Не маркетплейс</h4>
-                                    <p class="card-text">Ваш бренд, ваша база клиентов и оплата сразу на ваш счёт — без комиссий</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+        <div class="feature">
+          <div class="featutres-svg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="35 50 185 184"
+              preserveAspectRatio="none"
+              fill="none"
+            >
+              <defs>
+                <linearGradient
+                  id="outline"
+                  x1="128"
+                  y1="48"
+                  x2="128"
+                  y2="210"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0" stop-color="#27C9F2" />
+                  <stop offset="0.48" stop-color="#527AF3" />
+                  <stop offset="1" stop-color="#F13CAF" />
+                </linearGradient>
+              </defs>
+              <rect
+                x="46"
+                y="65"
+                width="164"
+                height="142"
+                rx="18"
+                stroke="url(#outline)"
+                stroke-width="8"
+              />
+              <path
+                d="M46 105H210"
+                stroke="url(#outline)"
+                stroke-width="8"
+                stroke-linecap="round"
+              />
+              <path
+                d="M84 46V82M172 46V82"
+                stroke="url(#outline)"
+                stroke-width="8"
+                stroke-linecap="round"
+              />
+            </svg>
+          </div>
+          <b>Расписание</b>
+          <p>Удобная запись и напоминания, которые не подводят.</p>
         </div>
-
-
-
-    </div>
-    <!-- // end .section -->
-    <div class="section">
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 offset-lg-6">
-                    <div class="box-icon"><span class="ti-mobile gradient-fill ti-3x"></span></div>
-                    <h2>Посмотрите, как вы будете получать больше заказов</h2>
-                    <p class="mb-4">Покажем, как работает витрина, бонусная система и приём заказов 24/7 — на примере <span style="font-weight: 900;">вашего магазина</span> </p>
-                    <a target="_blank" href="https://max.ru/u/f9LHodD0cOJQCqfwdqEIaOL20g2dbIu9WPfF6nxvtehX0ATItFQAwblGel0" class="btn btn-primary">Посмотреть демо</a>
-                </div>
-            </div>
-            <div class="perspective-phone">
-                <img src="images/perspective.png" alt="perspective phone" class="img-fluid">
-            </div>
+        <div class="feature">
+          <div class="featutres-svg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="35 45 187 188"
+              preserveAspectRatio="none"
+              fill="none"
+            >
+              <defs>
+                <linearGradient
+                  id="outline"
+                  x1="128"
+                  y1="48"
+                  x2="128"
+                  y2="210"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0" stop-color="#2DC8F1" />
+                  <stop offset="0.45" stop-color="#6D70EF" />
+                  <stop offset="1" stop-color="#F13CAF" />
+                </linearGradient>
+                <linearGradient
+                  id="detail"
+                  x1="88"
+                  y1="142"
+                  x2="183"
+                  y2="166"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop stop-color="#ED43B0" />
+                  <stop offset="1" stop-color="#CB4CD2" />
+                </linearGradient>
+              </defs>
+              <rect
+                x="42"
+                y="57"
+                width="172"
+                height="148"
+                rx="22"
+                stroke="url(#outline)"
+                stroke-width="8"
+              />
+              <path
+                d="M42 101H214"
+                stroke="url(#outline)"
+                stroke-width="8"
+                stroke-linecap="round"
+              />
+              <path
+                d="M71 157H94"
+                stroke="url(#detail)"
+                stroke-width="8"
+                stroke-linecap="round"
+              />
+              <circle
+                cx="177"
+                cy="157"
+                r="11"
+                stroke="url(#detail)"
+                stroke-width="8"
+              />
+            </svg>
+          </div>
+          <b>Оплаты</b>
+          <p>Принимайте оплату без лишних сервисов.</p>
         </div>
-
-    </div>
-    <!-- // end .section -->
-
-
-    <div class="section light-bg">
-        <div class="container">
-            <div class="section-title">
-                <small>ВОЗМОЖНОСТИ</small>
-                <h3>Что еще умеет приложение</h3>
-            </div>
-
-            <ul class="nav nav-tabs nav-justified" role="tablist">
-                <li class="nav-item">
-                    <a class="nav-link active" data-toggle="tab" href="#communication">Витрина</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#schedule">Платежи</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#messages">Доставка</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#livechat">Бонусы</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" data-toggle="tab" href="#cabinet">Кабинет</a>
-                </li>
-            </ul>
-            <div class="tab-content">
-                <div class="tab-pane fade show active" id="communication">
-                    <div class="d-flex flex-column flex-lg-row">
-                        <img src="images/graphic.png" alt="graphic"
-                            class="img-fluid rounded align-self-start mr-lg-5 mb-5 mb-lg-0">
-                        <div>
-
-                            <h2>Готовая онлайн-витрина</h2>
-                            <p class="lead">Начните продавать в интернете за 24 часа без вложений в разработку. </p>
-                            <p>Забудьте о долгих согласованиях с разработчиками и огромных бюджетах на создание сайта.
-                                Мы предлагаем готовое решение — стильную, адаптивную витрину, которая запускается за
-                                несколько кликов.
-                            </p>
-                            <p>Вы просто загружаете фотографии своих букетов, указываете цены — и ваш магазин уже
-                                работает в интернете 24/7. Витрина автоматически подстраивается под любой экран: будь то
-                                компьютер, планшет или смартфон. Это значит, что ваши клиенты могут комфортно выбирать
-                                цветы откуда угодно.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="schedule">
-                    <div class="d-flex flex-column flex-lg-row">
-                        <div>
-                            <h2>Прием платежей (эквайринг)</h2>
-                            <p class="lead">Мы берем на себя всю техническую сторону приема платежей. </p>
-                            <p>
-                                При подключении нашего эквайринга вы получаете не просто кнопку «Оплатить» на сайте, а
-                                полностью настроенную систему, которая соответствует требованиям 54-ФЗ: каждый чек
-                                автоматически
-                                отправляется покупателю и в налоговую через оператора фискальных данных.
-                            </p>
-                            <p> Вам не нужно нанимать программистов для интеграции — у нас готовые модули. А если у вас уже есть
-                                кассовое оборудование, мы легко интегрируем виртуальный терминал с вашей офлайн-кассой.
-                            </p>
-                        </div>
-                        <img src="images/graphic.png" alt="graphic"
-                            class="img-fluid rounded align-self-start mr-lg-5 mb-5 mb-lg-0">
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="messages">
-                    <div class="d-flex flex-column flex-lg-row">
-                        <img src="images/graphic.png" alt="graphic"
-                            class="img-fluid rounded align-self-start mr-lg-5 mb-5 mb-lg-0">
-                        <div>
-                            <h2>Гибкая система доставки</h2>
-                            <p class="lead">Доставляйте как хотите: своя курьерская служба, партнеры или наша сеть. </p>
-                            <p>Мы понимаем, что у каждого цветочного магазина своя логистика. Поэтому не заставляем вас
-                                работать только с нашими курьерами. Вы можете выбрать любой удобный вариант: подключать
-                                своих штатных курьеров и управлять ими через наше приложение, пользоваться партнерскими
-                                службами доставки (Яндекс.Доставка, Достависта, локальные перевозчики) или полностью доверить
-                                логистику нам — мы подключим проверенных исполнителей в вашем городе.
-                            </p>
-                            <p>
-                                Главное преимущество для цветочного бизнеса — мультискладская логистика. Если у вас
-                                несколько точек в городе, система сама определит, в каком магазине есть нужные цветы и
-                                откуда дешевле и быстрее доставить заказ. Это исключает ситуации, когда курьер едет
-                                через весь город, хотя такой же букет есть в соседнем районе. А гибкая настройка тарифов
-                                позволит предложить клиентам выбор: бесплатная доставка через 3 дня, экспресс за 2 часа
-                                или ночная доставка с меньшей загрузкой курьеров.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="livechat">
-                    <div class="d-flex flex-column flex-lg-row">
-                        <div>
-                            <h2>Бонусная система</h2>
-                            <p class="lead">Превратите случайных покупателей в постоянных с умной системой бонусов. </p>
-                            <p>Привлечение нового клиента обходится в 5–7 раз дороже, чем удержание существующего. Наша
-                                программа лояльности решает именно эту задачу: вы автоматически начисляете бонусы за
-                                каждую покупку, а клиенты возвращаются снова, чтобы потратить накопленное. Вы сами
-                                задаете правила: процент начисления, максимальную долю оплаты бонусами (например, до
-                                25–50% от чека). Система сама следит за балансами и уведомляет покупателей.</p>
-                        </div>
-                        <img src="images/graphic.png" alt="graphic"
-                            class="img-fluid rounded align-self-start mr-lg-5 mb-5 mb-lg-0">
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="cabinet">
-                    <div class="d-flex flex-column flex-lg-row">
-                        <div>
-                            <h2>Личный кабинет клиента и админ-панель</h2>
-                            <p class="lead">Личный кабинет покупателя: всё под рукой, как любимый букет.</p>
-                            <p>Для ваших клиентов мы создали удобное личное пространство, где покупка цветов становится
-                                простой и приятной.
-                                После регистрации покупатель попадает в интуитивно понятный кабинет с историей всех
-                                заказов.
-                                Здесь можно отследить статус текущего букета в реальном времени: собран ли он флористом,
-                                передан ли курьеру,
-                                когда примерно будет доставлен. Никаких звонков с вопросом «Где мой заказ?» — клиент сам
-                                видит всё на экране.
-                            <p>
-                                В админке можно управлять каталогом: добавлять новые букеты, редактировать описания и
-                                цены, загружать фотографии,
-                                настраивать акции и скидки прямо из интерфейса без помощи программистов.
-                                Система в будущем будет синхронизироваться с 1С или «МойСклад», поэтому остатки на сайте
-                                всегда будут актуальны.
-                                А встроенная аналитика будет показывать, какие букеты продаются лучше, в какое время
-                                больше заказов и какие районы самые прибыльные для доставки.
-                                Планируется не просто панель управления, а настоящий центр контроля вашего бизнеса.
-                                Любые идеи и предложения привествуем всегда!
-                            </p>
-                        </div>
-                        <img src="images/graphic.png" alt="graphic"
-                            class="img-fluid rounded align-self-start mr-lg-5 mb-5 mb-lg-0">
-                    </div>
-                </div>
-            </div>
-
-
+        <div class="feature">
+          <div class="featutres-svg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="34 48 186 186"
+              preserveAspectRatio="none"
+              fill="none"
+            >
+              <defs>
+                <linearGradient
+                  id="outline"
+                  x1="128"
+                  y1="55"
+                  x2="128"
+                  y2="202"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0" stop-color="#27C9F1" />
+                  <stop offset="0.47" stop-color="#6675F0" />
+                  <stop offset="1" stop-color="#F13CAF" />
+                </linearGradient>
+              </defs>
+              <rect
+                x="39"
+                y="62"
+                width="137"
+                height="132"
+                rx="22"
+                stroke="url(#outline)"
+                stroke-width="8"
+              />
+              <path
+                d="M176 105L207 81C211.6 77.4 218 80.7 218 86.6V169.4C218 175.3 211.6 178.6 207 175L176 151V105Z"
+                stroke="url(#outline)"
+                stroke-width="8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <b>Видеозвонки</b>
+          <p>Консультируйте прямо в платформе.</p>
         </div>
-    </div>
-    <!-- // end .section -->
-
-    <div class="section">
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <img src="images/dualphone.png" alt="dual phone" class="img-fluid">
-                </div>
-                <div class="col-md-6 d-flex align-items-center">
-                    <div>
-                        <div class="box-icon"><span class="ti-rocket gradient-fill ti-3x"></span></div>
-                        <h2>Запускаем приём заказов</h2>
-                        <p class="mb-4">Подключаем витрину, оплату и бонусную систему — чтобы вы начали получать заказы и возвращать клиентов<br><br>
-                            Что делаем:<br>
-                            
-                            &nbsp; - Настраиваем витрину под ваш бренд<br>
-                            &nbsp; - Подключаем оплату и доставку<br>
-                            &nbsp; - Запускаем бонусную систему для повторных заказов<br>
-                            &nbsp; - Помогаем довести до первых заказов
-                        </p>
-
-                        <a target="_blank" href="https://max.ru/u/f9LHodD0cOJQCqfwdqEIaOL20g2dbIu9WPfF6nxvtehX0ATItFQAwblGel0" class="btn btn-primary">Начать запуск</a>
-                    </div>
-                </div>
-            </div>
-
+        <div class="feature">
+          <div class="featutres-svg">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="45 48 169 181"
+              fill="none"
+            >
+              <defs>
+                <linearGradient
+                  id="outline"
+                  x1="54"
+                  y1="204"
+                  x2="194"
+                  y2="48"
+                  gradientUnits="userSpaceOnUse"
+                >
+                  <stop offset="0" stop-color="#22CFAE" />
+                  <stop offset="0.52" stop-color="#25DE9D" />
+                  <stop offset="1" stop-color="#2AE68C" />
+                </linearGradient>
+              </defs>
+              <rect
+                x="42"
+                y="130"
+                width="42"
+                height="74"
+                rx="8"
+                stroke="url(#outline)"
+                stroke-width="8"
+              />
+              <rect
+                x="107"
+                y="91"
+                width="42"
+                height="113"
+                rx="8"
+                stroke="url(#outline)"
+                stroke-width="8"
+              />
+              <rect
+                x="172"
+                y="52"
+                width="42"
+                height="152"
+                rx="8"
+                stroke="url(#outline)"
+                stroke-width="8"
+              />
+            </svg>
+          </div>
+          <b>История</b>
+          <p>Вся история работы и платежей под рукой.</p>
         </div>
-
-    </div>
-    <!-- // end .section -->
-
-
-    <div class="section light-bg">
-
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 d-flex align-items-center">
-                    <ul class="list-unstyled ui-steps">
-                        <li class="media">
-                            <div class="circle-icon mr-4">1</div>
-                            <div class="media-body">
-                                <h5>Консультация</h5>
-                                <p>Встречаемся лично, созваниваемся или по вашему текстовому брифу изучаем бизнес,
-                                    фиксируем цели и показываем, как будет выглядеть ваше приложение.</p>
-                            </div>
-                        </li>
-                        <li class="media my-4">
-                            <div class="circle-icon mr-4">2</div>
-                            <div class="media-body">
-                                <h5>Заключение сотрудничества</h5>
-                                <p>Вы выбираете тариф и удобный способ оплаты, далее подписываем договор.</p>
-                            </div>
-                        </li>
-                        <li class="media">
-                            <div class="circle-icon mr-4">3</div>
-                            <div class="media-body">
-                                <h5>Настройка и интеграция</h5>
-                                <p>Подключаем онлайн-кассу, службы доставки, программу лояльности и хостинг. Наполняем
-                                    каталог и готовим систему к работе.</p>
-                            </div>
-                        </li>
-                        <li class="media">
-                            <div class="circle-icon mr-4">4</div>
-                            <div class="media-body">
-                                <h5>Обучение и передача приложения</h5>
-                                <p>Показываем, как управлять админ-панелью, выдаем инструкции по продвижению и материалы
-                                    для работы.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <img src="images/iphonex.png" alt="iphone" class="img-fluid">
-                </div>
-
-            </div>
-
+      </div>
+    </section>
+    <section class="light support">
+      <div>
+        <div class="eyebrow">Живые люди · Реальная помощь</div>
+        <h2 class="title">Здесь про поддержку,<br />а не про технологии</h2>
+        <p>
+          Мы создали «Объясни мне» вместе с экспертами. Слушаем, улучшаем,
+          делаем удобнее.<br />Чтобы в вашей практике стало легче дышать.
+        </p>
+      </div>
+      <div class="photos">
+        <img class="coach" src="./img/02.png" alt="Фитнес-тренер" /><img
+          class="woman"
+          src="./img/03.png"
+          alt="Клиентка"
+        /><img class="man" src="./img/04.png" alt="Эксперт" />
+        <div class="quote">
+          Раньше тратила кучу времени на переписку и переносы. Теперь всё
+          собрано в одном месте — клиенты довольны, а у меня появилось время на
+          работу, а не на организацию.<br /><br /><b>Мария, фитнес-тренер</b>
         </div>
-
-    </div>
-    <!-- // end .section -->
-
-
-    <div class="section">
-        <div class="container">
-            <div class="section-title">
-                <small>ОТЗЫВЫ</small>
-                <h3>Что о нас говорят</h3>
+      </div>
+    </section>
+    <section class="wrap process">
+      <div class="eyebrow">Как это работает</div>
+      <div class="process-flex">
+        <h2 class="title">Один поток.<br />Без лишних<br />переключений</h2>
+        <div class="steps">
+          <div class="step">
+            <div class="ico">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 256 256"
+                fill="none"
+              >
+                <defs>
+                  <linearGradient
+                    id="outline-01"
+                    x1="52"
+                    y1="206"
+                    x2="196"
+                    y2="48"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0" stop-color="#20D5B1" />
+                    <stop offset="0.5" stop-color="#25DE9D" />
+                    <stop offset="1" stop-color="#2BE987" />
+                  </linearGradient>
+                </defs>
+                <rect
+                  x="46"
+                  y="65"
+                  width="164"
+                  height="142"
+                  rx="18"
+                  stroke="url(#outline-01)"
+                  stroke-width="8"
+                />
+                <path
+                  d="M46 105H210"
+                  stroke="url(#outline-01)"
+                  stroke-width="8"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M84 46V82M172 46V82"
+                  stroke="url(#outline-01)"
+                  stroke-width="8"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M174 178H188"
+                  stroke="url(#outline-01)"
+                  stroke-width="8"
+                  stroke-linecap="round"
+                />
+              </svg>
             </div>
-
-            <div class="testimonials owl-carousel">
-                <div class="testimonials-single">
-                    <img src="images/noavatar.webp" alt="client" class="client-img">
-                    <blockquote class="blockquote">Классно, классно. Я в сайт вложил намного больше, вот только начался
-                        раскачивать. Так что альтернатива отличная.</blockquote>
-                    <h5 class="mt-4 mb-2">Андрей Михайлов</h5>
-                    <p class="text-primary">Москва, Россия</p>
-                </div>
-                <div class="testimonials-single">
-                    <img src="images/noavatar.webp" alt="client" class="client-img">
-                    <blockquote class="blockquote">У кого нет сайта отличный вариант. Молодцы. У нас есть свои сайт,
-                        если бы не было то взяла точно.</blockquote>
-                    <h5 class="mt-4 mb-2">Андрей Михайлов</h5>
-                    <p class="text-primary">Москва, Россия</p>
-                </div>
-                <div class="testimonials-single">
-                    <img src="images/noavatar.webp" alt="client" class="client-img">
-                    <blockquote class="blockquote">Спасибо у вас получается сайт и приложение тоже идет за эту стоимость
-                    </blockquote>
-                    <h5 class="mt-4 mb-2">Вероника Лаврова</h5>
-                    <p class="text-primary">Москва, Россия</p>
-                </div>
+            <div class="dot"></div>
+            <div>
+              <strong>01</strong>
+              <p>Клиент записывается на удобное время</p>
             </div>
-
+          </div>
+          <div class="step">
+            <div class="ico">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 256 256"
+                fill="none"
+              >
+                <defs>
+                  <linearGradient
+                    id="outline-02"
+                    x1="56"
+                    y1="205"
+                    x2="199"
+                    y2="49"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0" stop-color="#20D1B1" />
+                    <stop offset="0.5" stop-color="#25DD9D" />
+                    <stop offset="1" stop-color="#2BE986" />
+                  </linearGradient>
+                </defs>
+                <rect
+                  x="42"
+                  y="57"
+                  width="172"
+                  height="148"
+                  rx="22"
+                  stroke="url(#outline-02)"
+                  stroke-width="8"
+                />
+                <path
+                  d="M42 101H214"
+                  stroke="url(#outline-02)"
+                  stroke-width="8"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M72 157H86M170 157H184"
+                  stroke="url(#outline-02)"
+                  stroke-width="8"
+                  stroke-linecap="round"
+                />
+              </svg>
+            </div>
+            <div style="background: #2fcfbe" class="dot"></div>
+            <div>
+              <strong>02</strong>
+              <p>Оплачивает консультацию в пару кликов</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="ico">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 256 256"
+                fill="none"
+              >
+                <defs>
+                  <linearGradient
+                    id="outline-03"
+                    x1="48"
+                    y1="196"
+                    x2="206"
+                    y2="57"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0" stop-color="#20D4B5" />
+                    <stop offset="0.52" stop-color="#25D6C2" />
+                    <stop offset="1" stop-color="#2CCBEA" />
+                  </linearGradient>
+                </defs>
+                <rect
+                  x="39"
+                  y="62"
+                  width="137"
+                  height="132"
+                  rx="22"
+                  stroke="url(#outline-03)"
+                  stroke-width="8"
+                />
+                <path
+                  d="M176 105L207 81C211.6 77.4 218 80.7 218 86.6V169.4C218 175.3 211.6 178.6 207 175L176 151V105Z"
+                  stroke="url(#outline-03)"
+                  stroke-width="8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div style="background: #3bc1e0" class="dot"></div>
+            <div>
+              <strong>03</strong>
+              <p>Вы проводите встречу онлайн</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="ico">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 256 256"
+                fill="none"
+              >
+                <defs>
+                  <linearGradient
+                    id="outline-04"
+                    x1="128"
+                    y1="52"
+                    x2="128"
+                    y2="198"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0" stop-color="#29C9EE" />
+                    <stop offset="0.5" stop-color="#3B8CF2" />
+                    <stop offset="1" stop-color="#243CFF" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M82 58H174C197.196 58 216 76.804 216 100V133C216 156.196 197.196 175 174 175H96L62 193L72 171C53.844 166.561 40 150.142 40 131V100C40 76.804 58.804 58 82 58Z"
+                  stroke="url(#outline-04)"
+                  stroke-width="8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div style="background: #6e8ee6" class="dot"></div>
+            <div>
+              <strong>04</strong>
+              <p>Вся история сохраняется</p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="ico">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 256 256"
+                fill="none"
+              >
+                <defs>
+                  <linearGradient
+                    id="outline-05"
+                    x1="48"
+                    y1="190"
+                    x2="207"
+                    y2="62"
+                    gradientUnits="userSpaceOnUse"
+                  >
+                    <stop offset="0" stop-color="#5D78F4" />
+                    <stop offset="0.5" stop-color="#8068EF" />
+                    <stop offset="1" stop-color="#A65AE8" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M55 126C56.1 85.8 89 54 129 54C165.3 54 195.4 80 201.8 114"
+                  stroke="url(#outline-05)"
+                  stroke-width="8"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M184 100L202 115L211 93"
+                  stroke="url(#outline-05)"
+                  stroke-width="8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M201 130C199.9 170.2 167 202 127 202C90.7 202 60.6 176 54.2 142"
+                  stroke="url(#outline-05)"
+                  stroke-width="8"
+                  stroke-linecap="round"
+                />
+                <path
+                  d="M72 156L54 141L45 163"
+                  stroke="url(#outline-05)"
+                  stroke-width="8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div style="background: #a25cee" class="dot"></div>
+            <div>
+              <strong>05</strong>
+              <p>Легко назначить следующую встречу</p>
+            </div>
+          </div>
         </div>
-
-    </div>
-    <!-- // end .section -->
-
-    <div class="section light-bg" id="gallery">
-        <div class="container">
-            <div class="section-title">
-                <small>ГАЛЛЕРЕЯ</small>
-                <h3>Как выглядит приложение</h3>
-            </div>
-
-            <div class="img-gallery owl-carousel owl-theme">
-                <img src="images/scr1.png" alt="image">
-                <img src="images/scr2.png" alt="image">
-                <img src="images/scr3.png" alt="image">
-                <img src="images/scr4.png" alt="image">
-            </div>
-
+      </div>
+    </section>
+    <section class="light platform">
+      <div>
+        <div class="eyebrow">Используйте где угодно</div>
+        <h2 class="title">Платформа, которая<br />всегда с вами</h2>
+        <p style="font-size: 12px; line-height: 1.6">
+          Компьютер, планшет или телефон — «Объясни мне» подстраивается под ваш
+          день.
+        </p>
+        <ul class="checks">
+          <li>Интуитивно и быстро</li>
+          <li>Ничего лишнего</li>
+          <li>Ваши данные под защитой</li>
+        </ul>
+      </div>
+      <img
+        class="devices"
+        src="./img/05.png"
+        alt="Платформа на разных устройствах"
+      />
+    </section>
+    <section id="price" class="wrap pricing">
+      <div>
+        <div class="eyebrow">Простые условия</div>
+        <h2>Вы платите, только<br />когда получаете оплату</h2>
+        <ul class="checks">
+          <li>Комиссия всего 1% с консультации</li>
+          <li>Без подписок и абонентской платы</li>
+          <li>Выводите деньги, когда удобно</li>
+        </ul>
+      </div>
+      <div class="percent">1%</div>
+      <div class="invoice">
+        <div class="row"><b>Консультация</b><b>3 000 ₽</b></div>
+        <div class="row"><span>Комиссия 1%</span><b>30 ₽</b></div>
+        <div class="row">
+          <span>Вы получаете</span><b class="net">2 970 ₽</b>
         </div>
-
-    </div>
-    <!-- // end .section -->
-
-
-
-
-
-    <div class="section" id="pricing">
-        <div class="container">
-            <div class="section-title">
-                <small>ЦЕНЫ</small>
-                <h3>Стоимость использования</h3>
-            </div>
-
-            <div class="card-deck">
-                <div class="card pricing">
-                    <div class="card-head">
-                        <small class="text-primary">СТАРТ</small>
-                        <span class="price">₽3000<sub>/мес</sub></span>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <div class="list-group-item">Онлайн-витрина под вашим брендом</div>
-                        <div class="list-group-item">Приём заказов и оплата 24/7</div>
-                        <div class="list-group-item">Доставка и бонусная система</div>
-                        <div class="list-group-item">Поддержка и обновления</div>
-                    </ul>
-                    <div class="card-body">
-                        <a target="_blank" href="https://max.ru/u/f9LHodD0cOJQCqfwdqEIaOL20g2dbIu9WPfF6nxvtehX0ATItFQAwblGel0" class="btn btn-primary btn-lg btn-block">Подключить</a>
-                    </div>
-                </div>
-                <div class="card pricing popular">
-                    <div class="card-head">
-                        <small class="text-primary">ВЫГОДНО</small>
-                        <span class="price">₽35000<sub>/год</sub></span>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <div class="list-group-item">Всё из тарифа “Старт”</div>
-                        <div class="list-group-item">Экономия</div>
-                        <div class="list-group-item">Приоритетная поддержка</div>
-                        <div class="list-group-item">Все обновления и новые функции</div>
-                    </ul>
-                    <div class="card-body">
-                        <a target="_blank" href="https://max.ru/u/f9LHodD0cOJQCqfwdqEIaOL20g2dbIu9WPfF6nxvtehX0ATItFQAwblGel0" class="btn btn-primary btn-lg btn-block">Подключить</a>
-                    </div>
-                </div>
-                <div class="card pricing">
-                    <div class="card-head">
-                        <small class="text-primary">НАВСЕГДА</small>
-                        <span class="price">₽105000<sub>/навсегда</sub></span>
-                    </div>
-                    <ul class="list-group list-group-flush">
-                        <div class="list-group-item">Всё из тарифа “Старт”</div>
-                        <div class="list-group-item">Без ежемесячных платежей</div>
-                        <div class="list-group-item">Все обновления</div>
-                        <div class="list-group-item">Приоритетная поддержка</div>
-                    </ul>
-                    <div class="card-body">
-                        <a target="_blank" href="https://max.ru/u/f9LHodD0cOJQCqfwdqEIaOL20g2dbIu9WPfF6nxvtehX0ATItFQAwblGel0" class="btn btn-primary btn-lg btn-block">Подключить</a>
-                    </div>
-                </div>
-            </div>
-            <!-- // end .pricing -->
-
-
+      </div>
+    </section>
+    <section class="wrap">
+      <div class="cta">
+        <div>
+          <h2>Попробуйте «Объясни мне» сейчас</h2>
+          <p>Начните с одного клиента. Без подписки. Комиссия 1%.</p>
         </div>
-
-    </div>
-    <!-- // end .section -->
-
-
-    <div class="section pt-0">
-        <div class="container">
-            <div class="section-title">
-                <small>FAQ</small>
-                <h3>Частые вопросы</h3>
-            </div>
-
-            <div class="row pt-4">
-                <div class="col-md-6">
-                    <h4 class="mb-3">Откуда ко мне будут приходить заказы?</h4>
-                    <p class="light-font mb-5">Основной поток — это ваши текущие клиенты и люди с карт (Яндекс.Карты), соцсетей и рекомендаций. Вы размещаете одну ссылку, и клиент может сразу оформить заказ онлайн без звонков и переписок. Дополнительно можно использовать кнопку «Заказать» в Telegram, бот в MAX и ссылку для размещения в соцсетях и на картах — всё сводится в один удобный канал заказов.</p>
-                    <h4 class="mb-3">А вы приводите новых клиентов или это только про приём заказов?</h4>
-                    <p class="light-font mb-5">Мы не являемся рекламным агентством — наша задача сделать так, чтобы вы не теряли клиентов и конвертировали их в заказы. За счёт удобного оформления, оплаты 24/7, бонусной системы и возврата клиентов вы начинаете зарабатывать больше с уже существующего трафика.</p>
-                    <h4 class="mb-3">Где размещать ссылку, чтобы были заказы?</h4>
-                    <p class="light-font mb-5">Лучше всего работают Яндекс.Карты (в карточке магазина), Telegram и соцсети, а также QR-коды в магазине, на визитках и упаковке. Клиент видит ссылку, переходит и оформляет заказ за 1–2 минуты без лишних действий.</p>
-                </div>
-                <div class="col-md-6">
-                    <h4 class="mb-3">Как сервис помогает увеличивать повторные заказы?</h4>
-                    <p class="light-font mb-5">В сервисе есть бонусная система: клиент получает бонусы за заказ и возвращается, чтобы их потратить. Можно запускать акции и стимулировать повторные покупки, что позволяет увеличивать выручку без дополнительных вложений в рекламу.</p>
-                    <h4 class="mb-3">Почему клиенту удобнее заказать у меня, а не написать в мессенджер?</h4>
-                    <p class="light-font mb-5">Потому что заказ оформляется без переписки: клиент сразу видит цену, выбирает доставку, оплачивает онлайн и получает уведомления по статусу заказа. Это повышает доверие и делает процесс покупки намного проще. </p>
-                    <h4 class="mb-3">Я буду видеть и контролировать все заказы?</h4>
-                    <p class="light-font mb-5">Да, все заказы попадают в систему: вы видите их статус, историю, контакты клиентов и можете работать с повторными продажами. Это позволяет не терять клиентов и выстраивать с ними долгосрочные отношения.</p>
-                </div>
-            </div>
+        <button class="btn open">Провести следующую консультацию</button>
+      </div>
+    </section>
+    <footer class="wrap footer">
+      <div class="footer-grid">
+        <div>
+          <div class="brand"><span class="logo">✦</span>Объясни мне</div>
+          <p>Рабочее пространство для экспертов<br />и их клиентов.</p>
         </div>
-
-    </div>
-    <!-- // end .section -->
-
-
-
-    <div class="section bg-gradient">
-        <div class="container">
-            <div class="call-to-action">
-
-                <div class="box-icon"><span class="ti-mobile gradient-fill ti-3x"></span></div>
-                <h2>Работает где угодно</h2>
-                                <div class="my-4">
-                    <a target="_blank" href="https://max.ru/u/f9LHodD0cOJQCqfwdqEIaOL20g2dbIu9WPfF6nxvtehX0ATItFQAwblGel0" class="btn btn-light"><img src="images/appleicon.png" alt="icon"> iOS</a>
-                    <a target="_blank" href="https://max.ru/u/f9LHodD0cOJQCqfwdqEIaOL20g2dbIu9WPfF6nxvtehX0ATItFQAwblGel0" class="btn btn-light"><img src="images/appleicon.png" alt="icon"> MacOS</a>
-                    <a target="_blank" href="https://max.ru/u/f9LHodD0cOJQCqfwdqEIaOL20g2dbIu9WPfF6nxvtehX0ATItFQAwblGel0" class="btn btn-light"><img src="images/playicon.png" alt="icon"> Android</a>
-                    <a target="_blank" href="https://max.ru/u/f9LHodD0cOJQCqfwdqEIaOL20g2dbIu9WPfF6nxvtehX0ATItFQAwblGel0" class="btn btn-light"><img src="images/windows.png" alt="icon"> Windows</a>
-                </div>
-                <p class="tagline">Наше решение можно запустить и установить на любое устройство. Оно будет отображаться и работать на любом телефоне, компьютере и даже телевизоре. </p>
-                <p class="text-primary"><small><i>*установка работает на устройствах которые поддерживают технологию  PWA </i></small></p>
-            </div>
+        <div>
+          <b>Платформа</b><a>Возможности</a><a>Безопасность</a
+          ><a href="#price">Тарифы</a>
         </div>
-
-    </div>
-    <!-- // end .section -->
-
-    <div class="light-bg py-5" id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 text-center text-lg-left">
-                    <p class="mb-2"> <span class="ti-location-pin mr-2"></span> г. Москва
-                    </p>
-                    <div class=" d-block d-sm-inline-block">
-                        <p class="mb-2">
-                            <span class="ti-email mr-2"></span> <a class="mr-4"
-                                href="mailto:support@mobileapp.com">manager@flowerapp.ru</a>
-                        </p>
-                    </div>
-                    <div class="d-block d-sm-inline-block">
-                        <p class="mb-0">
-                            <span class="ti-headphone-alt mr-2"></span> <a href="tel:+79197263216">+79197263216</a>
-                        </p>
-                    </div>
-
-                </div>
-                <div style="display: none;" class="col-lg-6">
-                    <div class="social-icons">
-                        <a href="#"><span class="ti-facebook"></span></a>
-                        <a href="#"><span class="ti-twitter-alt"></span></a>
-                        <a href="#"><span class="ti-instagram"></span></a>
-                    </div>
-                </div>
-            </div>
-
+        <div><b>Компания</b><a>О нас</a><a>Блог</a><a>Поддержка</a></div>
+        <div>
+          <b>Контакты</b><a href="mailto:help@obyasni.me">help@obyasni.me</a>
+          <p style="font-size: 16px; color: #37cde0">◉　VK　◎</p>
         </div>
-
-    </div>
-    <!-- // end .section -->
-    <footer class="my-5 text-center">
-        <!-- Copyright removal is not prohibited! -->
-        <p class="mb-2"><small>FLOWERAPP © 2026. ВСЕ ПРАВА ЗАЩИЩЕНЫ.</small></p>
-
-        <small style="display: none;">
-            <a href="#" class="m-2">PRESS</a>
-            <a href="#" class="m-2">TERMS</a>
-            <a href="#" class="m-2">PRIVACY</a>
-        </small>
+      </div>
+      <div class="legal">
+        <span>© 2024 «Объясни мне»</span
+        ><span>Пользовательское соглашение　 Политика конфиденциальности</span>
+      </div>
     </footer>
-
-    <!-- jQuery and Bootstrap -->
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <!-- Plugins JS -->
-    <script src="js/owl.carousel.min.js"></script>
-    <!-- Custom JS -->
-    <script src="js/script.js"></script>
-
-</body>
-
+    <div class="modal" role="dialog" aria-modal="true">
+      <form class="modal-card">
+        <h2>Следующая консультация</h2>
+        <p class="desc">Оставьте контакты — мы поможем всё настроить.</p>
+        <input required placeholder="Ваше имя" /><input
+          required
+          type="email"
+          placeholder="E-mail"
+        /><button class="btn">Продолжить</button
+        ><button
+          type="button"
+          class="close"
+          style="
+            float: right;
+            background: none;
+            border: 0;
+            color: #9ba6b8;
+            padding: 14px;
+          "
+        >
+          Закрыть
+        </button>
+      </form>
+    </div>
+    <script>
+      const m = document.querySelector(".modal");
+      document
+        .querySelectorAll(".open")
+        .forEach((b) => (b.onclick = () => m.classList.add("open")));
+      document.querySelector(".close").onclick = () =>
+        m.classList.remove("open");
+      document.querySelector("form").onsubmit = (e) => {
+        e.preventDefault();
+        alert("Спасибо! Мы свяжемся с вами.");
+        m.classList.remove("open");
+      };
+    </script>
+  </body>
 </html>
